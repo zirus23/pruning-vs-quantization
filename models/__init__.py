@@ -8,6 +8,7 @@ from models.efficientnet_lite_quantized import efficientnet_lite0_quantized
 from models.mobilenet_v2_quantized import mobilenetv2_quantized
 from models.mobilenetv3_small_quantized import mobilenetv3_small_100_quantized
 from models.resnet_quantized import resnet18_quantized, resnet50_quantized
+from models.gramnet_quantized import gramnet_quantized
 
 
 class QuantArchitectures(ClassEnumOptions):
@@ -16,3 +17,4 @@ class QuantArchitectures(ClassEnumOptions):
     resnet50_quantized = MethodMap(resnet50_quantized)
     efficientnet_lite0_quantized = MethodMap(efficientnet_lite0_quantized)
     mobilenetv3_small_100_quantized = MethodMap(mobilenetv3_small_100_quantized)
+    gramnet_quantized = MethodMap(gramnet_quantized)

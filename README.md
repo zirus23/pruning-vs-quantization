@@ -1,6 +1,15 @@
 # Pruning versus quantization: Which is better?
 This repository contains the implementation and experiments for the paper presented in
 
+# TODO: https://github.com/paaatcha/gram-ood/tree/master
+Use models from this repo and try to do stuff
+- quantize the model
+- prune the model
+- evaluate
+- fine tune (NEED DATA)
+- evaluate
+- quant_pruning_weights_sqnr.py
+
 **Andrey Kuzmin, Markus Nagel, Mart van Baalen, Arash Behboodi, Tijmen Blankevoort<sup>1</sup>", NeurIPS 2023.** 
 [[ArXiv]](https://arxiv.org/pdf/2307.02973.pdf)
 
