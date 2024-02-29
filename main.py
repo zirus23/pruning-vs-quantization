@@ -56,12 +56,18 @@ def oscillations():
 pass_config = click.make_pass_decorator(Config, ensure=True)
 
 """
-python main.py train-compressed --architecture gramnet_quantized \
---model-dir /home/user/pruning-vs-quantization/gram-ood/resnet-50_checkpoint.pth \
---batch-size 128  --n-bits 4 --images-dir /home/user/pruning-vs-quantization/gram-ood/data/skin_cancer \
---learning-rate 1e-5 --learning-rate-schedule cosine:1e-7 \
---no-act-quant --weight-quant-method MSE --optimizer SGD --weight-decay 1.0e-4 --sep-quant-optimizer \
---quant-optimizer Adam --quant-learning-rate 1e-5 --num-workers 8 --cuda --num-est-batches 1 \
+# TODO: get gramnet to work with high epoch 0 accuracy for sniff test
+# TODO: update get_dataloaders_and_model to have dataloader for ISIC etc
+
+# TODO: also add efficientnet to the list of architectures https://github.com/ngessert/isic2019
+# TODO(cont.): decide if want to use that or latest efficient net v2 lite
+
+python main.py train-compressed --architecture gramnet_quantized
+--model-dir /home/user/pruning-vs-quantization/gram-ood/resnet-50_checkpoint.pth
+--batch-size 128  --n-bits 32 --images-dir /home/user/pruning-vs-quantization/gram-ood/data/skin_cancer
+--learning-rate 1e-5 --learning-rate-schedule cosine:1e-7
+--no-act-quant --weight-quant-method MSE --optimizer SGD --weight-decay 1.0e-4 --sep-quant-optimizer
+--quant-optimizer Adam --quant-learning-rate 1e-5 --num-workers 4 --cuda --num-est-batches 1
 --max-epochs 20 --quant-weight-decay 0.0 --no-per-channel --reestimate-bn-stats
 
 """

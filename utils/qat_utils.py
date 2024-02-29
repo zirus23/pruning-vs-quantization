@@ -9,6 +9,9 @@ from quantization.hijacker import QuantizationHijacker
 from quantization.quantized_folded_bn import BNFusedHijacker
 
 from utils.imagenet_dataloaders import ImageNetDataLoaders
+from utils.skincancer_dataloaders import SkinCancerDataLoaders
+
+
 
 
 class MethodPropagator:
@@ -44,14 +47,20 @@ class MethodPropagator:
 
 
 def get_dataloaders_and_model(config, load_type="fp32", **qparams):
-    dataloaders = ImageNetDataLoaders(
+    # dataloaders = ImageNetDataLoaders(
+    #     config.base.images_dir,
+    #     224,
+    #     config.base.batch_size,
+    #     config.base.num_workers,
+    #     config.base.interpolation,
+    # )
+    dataloaders = SkinCancerDataLoaders(
         config.base.images_dir,
         224,
         config.base.batch_size,
         config.base.num_workers,
-        config.base.interpolation,
+        config.base.interpolation.value,
     )
-
     model = config.base.architecture(
         pretrained=config.base.pretrained,
         load_type=load_type,
